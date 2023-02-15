@@ -1,3 +1,3 @@
-class Town < ActiveRecord::Base
-    has_many :denizens
+class Denizen < ActiveRecord::Base
+    belongs_to :town
 end
