@@ -12,8 +12,17 @@ class ApplicationController < Sinatra::Base
     monsters.to_json
   end
 
-  get "/zones/name" do
-    chosen_zone
+  get "/zones/:id" do
+    chosen_zone = Zone.find(params[:id])
+    chosen_zone.to_json
   end
 
+  get "/monsters/:id" do
+    chosen_monster = Monster.find(params[:id])
+    chosen_monster.to_json
+  end
+
+  post "/zones" do
+    new_zone = Zone.create(params[:name])
+  end
 end
