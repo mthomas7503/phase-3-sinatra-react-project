@@ -23,6 +23,13 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/zones" do
-    new_zone = Zone.create(params[:name])
+    Zone.create(name: params[:name], region: params[:region])
+    new_zones = Zone.all
+    new_zones.to_json
+  end
+
+  post "/monsters" do
+    zone = Zone.find_by(name: params[:name])
+    Monster.create(name: params[:name], zone_id: params[:zone_id])
   end
 end
