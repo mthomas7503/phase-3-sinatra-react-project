@@ -30,6 +30,6 @@ class ApplicationController < Sinatra::Base
 
   post "/monsters" do
     zone = Zone.find_by(name: params[:name])
-    Monster.create(name: params[:name], zone_id: params[:zone_id])
+    Monster.create(name: params[:name], info: params[:description], zone_id: zone.id)
   end
 end
