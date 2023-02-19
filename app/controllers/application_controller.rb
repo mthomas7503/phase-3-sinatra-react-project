@@ -9,4 +9,11 @@ class ApplicationController < Sinatra::Base
 
   get "/monsters" do
     monsters = Monster.all
+    monsters.to_json
+  end
+
+  get "/zones/name" do
+    chosen_zone
+  end
+
 end
