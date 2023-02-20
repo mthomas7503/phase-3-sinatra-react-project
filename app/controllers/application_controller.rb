@@ -37,7 +37,7 @@ class ApplicationController < Sinatra::Base
 
   post "/new" do
     Zone.create(name: params[:zone_name], region: params[:region])
-    zone = Zone.find(params[:zone_id])
+  
     Monster.create(name: params[:monster_name], info: params[:info], zone_id: zone.id)
     monsters = Monster.all
     zones = Zone.all

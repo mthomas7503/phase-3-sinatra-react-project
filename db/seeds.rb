@@ -1,8 +1,8 @@
 puts "🌱 Seeding spices..."
 
-Zone.create(name: "Ancient Castle", region: "Figaro-Narshe")
-Zone.create(name: "Baren Falls", region: "Doma-Mobilz")
-Zone.create(name: "Darill's Tomb", region: "Kohlingen-Jidoor")
+Zone.create(name: "Ancient Castle", region: "Figaro-Narshe", info:"The Ancient Castle is a ruined castle buried between Kohlingen and South Figaro in Final Fantasy VI.")
+Zone.create(name: "Baren Falls", region: "Doma-Mobilz", info: "Baren Falls is a location in Final Fantasy VI that only appears in the World of Balance. It is situated north of the Veldt and south-west of Doma Castle and Imperial Camp.")
+Zone.create(name: "Darill's Tomb", region: "Kohlingen-Jidoor", info: "Darill's Tomb is a location in Final Fantasy VI located southwest of Kohlingen and can only be accessed in the World of Ruin.")
 
 Monster.create(name: "Devil", info: "The Devil, also known as Goblin, is an enemy in Final Fantasy VI. Despite being weak to Holy-elemental spells, players should be wary of their high magic defense and preset Reflect status.", zone_id: Zone.first.id)
 
