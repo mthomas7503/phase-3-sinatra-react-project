@@ -53,7 +53,8 @@ class ApplicationController < Sinatra::Base
     monster.to_json
   end
 
-  delete "/monsters" do
+  delete "/monsters/:id" do
+    binding.pry
     deleting_monster = Monster.find(params[:id])
     deleting_monster.destroy
     monsters = Monster.all
