@@ -44,4 +44,19 @@ class ApplicationController < Sinatra::Base
     monsters.to_json
     zones.to_json
   end
+
+  patch "/updatemonster" do
+    binding.pry
+    updating_monster = Monster.find_by(name: params[:name])
+    updating_monster.update(:info => params[:info])
+    monster = Monster.all
+    monster.to_json
+  end
+
+  delete "/monsters" do
+    deleting_monster = Monster.find(params[:id])
+    deleting_monster.destroy
+    monsters = Monster.all
+    monsters.to_json
+  end
 end
