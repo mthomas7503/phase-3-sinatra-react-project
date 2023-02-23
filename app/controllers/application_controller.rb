@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
   end
 
   patch "/updatemonster" do
-    binding.pry
+  
     updating_monster = Monster.find_by(name: params[:name])
     updating_monster.update(:info => params[:info])
     monster = Monster.all
@@ -54,7 +54,6 @@ class ApplicationController < Sinatra::Base
   end
 
   delete "/monsters/:id" do
-    binding.pry
     deleting_monster = Monster.find(params[:id])
     deleting_monster.destroy
     monsters = Monster.all
