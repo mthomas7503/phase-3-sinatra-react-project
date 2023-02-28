@@ -36,13 +36,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/new" do
-    Zone.create(name: params[:zone_name], region: params[:region])
-  
-    Monster.create(name: params[:monster_name], info: params[:info], zone_id: zone.id)
+    zone = Zone.find_by(name: params[:zone])
+   Monster.create(name: params[:name], info: params[:info], zone_id: zone.id)
     monsters = Monster.all
-    zones = Zone.all
     monsters.to_json
-    zones.to_json
   end
 
   patch "/updatemonster" do
