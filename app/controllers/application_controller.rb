@@ -22,26 +22,18 @@ class ApplicationController < Sinatra::Base
     chosen_monster.to_json
   end
 
-  post "/zones" do
-    Zone.create(name: params[:name], region: params[:region])
-    new_zones = Zone.all
-    new_zones.to_json
-  end
-
   post "/monsters" do
-    zone = Zone.find(params[:zone_id])
+    zone = Zone.find_by(name: params[:zone])
     Monster.create(name: params[:name], info: params[:info], zone_id: zone.id)
     new_monster = Monster.all
     new_monster.to_json
   end
 
 
-
   patch "/monsters" do
     updating_monster = Monster.find_by(name: params[:name])
     updating_monster.update(:info => params[:info])
     monster = Monster.all
-    binding.pry
     monster.to_json
   end
 
